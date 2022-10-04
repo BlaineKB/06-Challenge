@@ -2,29 +2,49 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial scale=1.0">
-    <title>Weather Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="./assets/styles/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial scale=1.0">
+  <title>Weather Dashboard</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
 
 <body>
-    <header>
-        <h1 class="text-center">Welcome to Weather Dashboard!</h1>
-    </header>
-    <main class="container">
-        <div class="row">
-            <div>
-                <h2>City:</h2>
-                <button type="button" id="btn-search">Search!</button>
-            </div>
-        </div>
-    </main>
+  <header class="site-header border-dark container bg-warning" style="border: 1px solid blue">
+    <h1 class="text-center">
+      <i class="fa-regular fa-sun"></i> Weather Dashboard! <i class="fa-solid fa-cloud-rain"></i>
+    </h1>
+  </header>
 
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-    <script src="./assets/js/script.js"></script>
+  <main class="container" id="main-container" style="border: 1px solid blue">
+    <div class="row">
+      <section class="search-col col-lg-4" id="city-search">
+        <div class="container border-light" id="city-search-container">
+          <h2 class="mb-3">City:</h2>
+            <input class="input" id="input-search" placeholder="Enter a City Name Here!">
+            <button class="btn btn-danger btn-block mb-2 border-dark" id="btn-search" type="submit">Search!</button>
+        </div>
+        <div class="current-col col-8 col-md-6" id="city-list"></div>    
+      </section>
+      
+      <section class="weather-container col col-md-6 border-primary ms-auto" id="weather-container">
+        <div class="city-data-container" id="city-data-box">
+          <div class="container" id="city-date-box">
+            <h2 id="city-name"></h2>
+            <div id="date"></div>
+          </div>
+        </div>
+        <div class="container align-items-center" id="forecast-container">
+          <div id="forecast"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
