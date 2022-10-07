@@ -9,9 +9,10 @@ const cityList = document.getElementById("city-list")
 const date = document.getElementById("date")
 const forecastContainer = document.getElementById("forecast-container")
 const forecastDisplay = document.getElementById("forecast")
+const cityHistory = JSON.parse(localStorage.getItem("city-name")) || []
 
 
-const cityCoordinates = function() {
+const cityCoordinates = function(city) {
   var geoApiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + ",&limit=1&appid=" + apiKey;
   console.log(geoApiUrl);
   
@@ -25,14 +26,10 @@ const cityCoordinates = function() {
     let latitude = data[0].lat
     let longitude = data[0].lon
 
-    console.log(latitude);
-    console.log(longitude);
-
     showWeatherInfo(latitude, longitude, city)
   })
 }
 
-cityCoordinates();
 
 const showWeatherInfo = function(latitude, longitude, city) {
   var weatherApiUrl = "api.openweathermap.org/data/2.5/forecast?lat=" + latitude + "&lon=" + longitude + "&units=imperial&appid=" + apiKey;
@@ -50,6 +47,10 @@ const showWeatherInfo = function(latitude, longitude, city) {
   })
 }
 
+function updateLocalStorage() {
+  cityHistory.push(city)
+  localStorage.setItem("city-name", JSON.stringify(cityHistory))
+}
 
 searchBtn.addEventListener('click', function(event) {
   event.preventDefault()
